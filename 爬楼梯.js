@@ -8,6 +8,7 @@
  */
 
  // 斐波那契数列解法
+ // 时间复杂度O(2^n)
  function fbnc(n) {
      if(n === 1) {
         return 1
@@ -18,7 +19,8 @@
      }
  }
 
- // 另一种
+ // 另一种 更好的写法
+ // 时间复杂度O(n)
  function fbnc1(n) {
     //  if(n===1) {
     //     return 1
