@@ -60,7 +60,18 @@ let curry3 = curry()
      
  }
 
- console.log(curryPro(1)(2)(3) + 0)
- console.log(curryPro(1, 2)(3) + 0)
- console.log(curryPro(1)(2)(3, 4) + 0)
+//  console.log(curryPro(1)(2)(3) + 0)
+//  console.log(curryPro(1, 2)(3) + 0)
+//  console.log(curryPro(1)(2)(3, 4) + 0)
+
+function sum() {
+    let _arr = [...arguments]
+    function fn() {
+        _arr.push(...arguments)
+        return fn
+    }
+    this.valueOf = () => _arr.reduce((a,b) => a+b, 0)
+    return fn
+}
+console.log(sum(1,2,3)(3)(1),valueOf())
 
