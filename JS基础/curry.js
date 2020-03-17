@@ -73,5 +73,40 @@ function sum() {
     this.valueOf = () => _arr.reduce((a,b) => a+b, 0)
     return fn
 }
-console.log(sum(1,2,3)(3)(1),valueOf())
+// console.log(sum(1,2,3)(3)(1),valueOf())
+
+function curry(fn, args) {
+    var length = fn && fn.length || 0;
+
+    args = args || [];
+
+    return function() {
+
+        var _args = args.slice(0),
+
+            arg, i;
+
+        for (i = 0; i < arguments.length; i++) {
+
+            arg = arguments[i];
+
+            _args.push(arg);
+
+        }
+        if (_args.length < length) {
+            return curry.call(this, fn, _args);
+        }
+        else {
+            return fn.apply(this, _args);
+        }
+    }
+}
+
+
+var fn = curry(function(a, b, c) {
+    console.log([a, b, c]);
+});
+
+fn(1)(2)(3)
+fn(1, 2)(3)
 
