@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <head>
+            <meta charset="UTF-8">
+
+    </head>
+    <body>
+        <input type="text" value="" id="input" />
+        <div id="inputShow">未输入</div>
+        
+    
+    </body>
+    <script>
+        var obj = {}
+        Object.defineProperty(obj, 'txt', {
+            get() {
+                return obj.txt
+            },
+            set(newval) {
+                document.getElementById('inputShow').innerHTML = newval
+            }
+        })
+        console.log(document.getElementById('input'))
+        document.getElementById('input').onchange = function(e) {
+            
+        }
+        document.addEventListener('keyup', (e) => {
+            obj.txt = e.target.value
+        })
+    </script>
+</html>

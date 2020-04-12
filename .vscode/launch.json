@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/面试题/遍历类型.js"
+            "program": "${workspaceRoot}/面试题/有序数组去重.js"
         }
     ]
 }

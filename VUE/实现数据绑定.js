@@ -24,7 +24,22 @@ class Dep {
 }
 class Watch{
     constructor(vm, prop, cb) {
+        this.vm = vm
+        this.key = prop
+        this.cb = cb
+        this.value = this.get()
+    }
 
+    update() {
+        let value = this.get()
+        this.cb.call(this.vm, value)
+    }
+
+    get() {
+        Dep.target = this
+        let value = this.$vm.data[this.key]
+        Dep.target = null
+        return value
     }
 }
 
